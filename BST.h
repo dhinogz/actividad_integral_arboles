@@ -59,3 +59,21 @@ void BST::inOrdenC(NodeT *r){
 	}
 }
 
+bool BST::search(int data){
+    NodeT *curr = root;
+    while (curr != nullptr){
+        if (curr->getData() == data){
+            return true;
+        }
+        /*
+        if (curr->getData() > data){
+            curr = curr->getLeft();
+        }
+        else{
+            curr = curr->getRight();
+        }*/
+        //operador condicional
+        curr = (curr->getData() > data) ? curr->getLeft() : curr->getRight();
+    }
+    return false;
+}
