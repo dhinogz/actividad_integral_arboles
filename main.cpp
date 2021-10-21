@@ -5,10 +5,11 @@
 
 using namespace std;
 
-#include "NodeT.h"
 #include "BST.h"
+#include "Functions.h"
 
 int main()
 {
     
 }
+
