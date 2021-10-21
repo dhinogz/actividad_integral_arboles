@@ -37,33 +37,33 @@ ostream& operator<<(ostream& os, const dataCS &d){
 
 class NodeT{
 	public:
-		NodeT(int data);
-		NodeT(int data, NodeT *left, NodeT *right);
-		int getData();
+		NodeT(dataCS data);
+		NodeT(dataCS data, NodeT *left, NodeT *right);
+		dataCS getData();
 		NodeT* getLeft();
 		NodeT* getRight();
-		void setData(int data);
+		void setData(dataCS data);
 		void setLeft(NodeT *left);
 		void setRight(NodeT *right);
 	private:
-		int data;
+		dataCS data;
 		NodeT *left;
 		NodeT *right;
 };
 
-NodeT::NodeT(int data){
+NodeT::NodeT(dataCS data){
 	this->data = data;
 	this->left = nullptr;
 	this->right = nullptr;
 }
 
-NodeT::NodeT(int data, NodeT *left, NodeT *right){
+NodeT::NodeT(dataCS data, NodeT *left, NodeT *right){
 	this->data = data;
 	this->left = left;
 	this->right = right;
 }
 
-int NodeT::getData(){
+dataCS NodeT::getData(){
 	return data;
 }
 
@@ -75,7 +75,7 @@ NodeT* NodeT::getRight(){
 	return right;
 }
 
-void NodeT::setData(int data){
+void NodeT::setData(dataCS data){
 	this->data = data;
 }
 
