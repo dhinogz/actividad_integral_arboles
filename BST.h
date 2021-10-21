@@ -4,7 +4,7 @@ class BST{
 	public:
 		BST();
 		~BST();
-		void add(int data);
+		void add(dataCS data);
 		void print();
 	private:
 		NodeT *root;
@@ -28,7 +28,7 @@ void BST::destuye_Helper(NodeT *r){
 	}
 }
 
-void BST::add(int data){
+void BST::add(dataCS data){
 	if (root == nullptr){
 		root = new NodeT(data);
 	}
