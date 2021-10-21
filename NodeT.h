@@ -27,7 +27,13 @@ struct dataCS {
 		this->cant = otra.cant;
 		this->nombre = otra.nombre;
 	}
+	friend ostream& operator<<(ostream& os, const dataCS &d);
 };
+
+ostream& operator<<(ostream& os, const dataCS &d){
+	os << d.nombre << " " << d.cant << endl;
+	return os;
+}
 
 class NodeT{
 	public:
