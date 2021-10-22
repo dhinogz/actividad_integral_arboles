@@ -6,10 +6,12 @@ class BST{
 		~BST();
 		void add(dataCS data);
 		void print();
+		int repeat(const string &palabra);
 	private:
 		NodeT *root;
 		void inOrdenC(NodeT *r);
 		void destuye_Helper(NodeT *r);
+		int repeat_Helper(NodeT *const nodo, const std::string &palabra);
 };
 
 BST::BST(){
@@ -59,21 +61,17 @@ void BST::inOrdenC(NodeT *r){
 	}
 }
 
-bool BST::search(int data){
-    NodeT *curr = root;
-    while (curr != nullptr){
-        if (curr->getData() == data){
-            return true;
-        }
-        /*
-        if (curr->getData() > data){
-            curr = curr->getLeft();
-        }
-        else{
-            curr = curr->getRight();
-        }*/
-        //operador condicional
-        curr = (curr->getData() > data) ? curr->getLeft() : curr->getRight();
-    }
-    return false;
+int BST::repeat(const string &palabra){
+    return repeat_Helper(root, palabra);
 }
+
+int BST::repeat_Helper(NodeT *const nodo, const std::string &palabra)
+{
+    if (nodo)
+    {
+        NodeT *curr = root;
+        return repeat_Helper(nodo->getLeft(), palabra) + repeat_Helper(nodo->getRight(), palabra) + (nodo->getData().nombre == palabra ? 1 : 0);
+    }
+    return 0;
+}
+
