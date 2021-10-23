@@ -4,7 +4,7 @@
 
 using namespace std;
 
-#include "BST_3_4.h"
+#include "BST.h"
 
 void loadData(dataCS &dataLoaded, BST &arbol, string txtFile)
 {
