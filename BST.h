@@ -1,5 +1,6 @@
 #include "NodeT.h"
 
+
 class BST{
 	public:
 		BST();
@@ -7,6 +8,8 @@ class BST{
 		void add(dataCS data);
         void print();        
         int repeat(const string &palabra);
+
+        void deleteR();
 	private:
 		NodeT *root;
         void inOrdenC(NodeT *r);
@@ -60,18 +63,4 @@ void BST::inOrdenC(NodeT *r){
 		cout << r->getData();
 		inOrdenC(r->getLeft());
 	}
-}
-
-int BST::repeat(const string &palabra){
-    return repeat_Helper(root, palabra);
-}
-
-int BST::repeat_Helper(NodeT *const nodo, const std::string &palabra)
-{
-    if (nodo)
-    {
-        NodeT *curr = root;
-        return repeat_Helper(nodo->getLeft(), palabra) + repeat_Helper(nodo->getRight(), palabra) + (nodo->getData().nombre == palabra ? 1 : 0);
-    }
-    return 0;
 }
