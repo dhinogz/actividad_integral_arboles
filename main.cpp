@@ -6,15 +6,33 @@ using namespace std;
 
 #include "BST.h"
 
-void loadData(dataCS &dataLoaded, BST &arbol, string txtFile)
+void loadData(dataCS dataLoaded, BST &arbol, string txtFile)
 {
 	ifstream dataSuez(txtFile);
-	while(dataSuez >> dataLoaded.ubi >> dataLoaded.fecha >> dataLoaded.hora >> dataLoaded.tipo)
+    int cont = 1;
+    string name;
+    string aux;
+    dataSuez >> dataLoaded.ubi >> dataLoaded.fecha >> dataLoaded.hora >> dataLoaded.tipo;
+    aux = dataLoaded.ubi;
+    while(dataSuez >> dataLoaded.ubi >> dataLoaded.fecha >> dataLoaded.hora >> dataLoaded.tipo)
     {
-        dataLoaded.nombre = dataLoaded.ubi.substr(0,3);
-        dataLoaded.cant = arbol.repeat(dataLoaded.nombre) + 1;    
-        arbol.add(dataLoaded);
+        name = dataLoaded.ubi.substr(0,3);
+        if (name == aux.substr(0,3)){
+            cont++;
+            aux = dataLoaded.ubi;
+        }
+        else{
+            dataLoaded.nombre = aux.substr(0,3);
+            dataLoaded.cant = cont;
+            arbol.add(dataLoaded);
+
+            aux = dataLoaded.ubi;
+            cont = 1;
+        }
     }
+    dataLoaded.nombre = aux.substr(0,3);
+    dataLoaded.cant = cont;
+    arbol.add(dataLoaded);
     dataSuez.close();
 }
 
@@ -35,6 +53,7 @@ int main()
 	
     loadData(dataSuez, arbolR, txtFileR);
     cout << "Entradas Mar ROJO" << endl;
+
     arbolR.print();
 
     loadData(dataSuez, arbolM, txtFileM);
