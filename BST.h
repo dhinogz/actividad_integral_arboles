@@ -5,13 +5,14 @@ class BST{
 		BST();
 		~BST();
 		void add(dataCS data);
-		void print();
-		int repeat(const string &palabra);
+        void print();        
+        int repeat(const string &palabra);
 	private:
 		NodeT *root;
-		void inOrdenC(NodeT *r);
+        void inOrdenC(NodeT *r);
 		void destuye_Helper(NodeT *r);
-		int repeat_Helper(NodeT *const nodo, const std::string &palabra);
+        int size_Helper(NodeT *r);
+        int repeat_Helper(NodeT *const nodo, const std::string &palabra);
 };
 
 BST::BST(){
@@ -56,7 +57,7 @@ void BST::print(){
 void BST::inOrdenC(NodeT *r){
 	if (r != nullptr){
 		inOrdenC(r->getRight());
-		cout << r->getData() << " ";
+		cout << r->getData();
 		inOrdenC(r->getLeft());
 	}
 }
@@ -74,4 +75,3 @@ int BST::repeat_Helper(NodeT *const nodo, const std::string &palabra)
     }
     return 0;
 }
-
