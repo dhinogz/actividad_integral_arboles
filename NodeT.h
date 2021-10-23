@@ -2,6 +2,11 @@ struct dataCS {
 	int cant;
 	string nombre;
 
+	string ubi;
+	string fecha;
+	string hora;
+	char tipo;
+
 	dataCS() {
 		cant = 0;
 		nombre = "AAA";
@@ -86,7 +91,6 @@ void NodeT::setLeft(NodeT *left){
 void NodeT::setRight(NodeT *right){
 	this->right = right;
 }
-
 
 
 
