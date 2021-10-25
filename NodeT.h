@@ -91,9 +91,3 @@ void NodeT::setLeft(NodeT *left){
 void NodeT::setRight(NodeT *right){
 	this->right = right;
 }
-
-
-
-
-
-
