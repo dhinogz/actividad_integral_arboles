@@ -1,21 +1,15 @@
 #include "NodeT.h"
 
-
 class BST{
 	public:
 		BST();
 		~BST();
 		void add(dataCS data);
         void print();        
-        int repeat(const string &palabra);
-
-        void deleteR();
 	private:
 		NodeT *root;
         void inOrdenC(NodeT *r);
 		void destuye_Helper(NodeT *r);
-        int size_Helper(NodeT *r);
-        int repeat_Helper(NodeT *const nodo, const std::string &palabra);
 };
 
 BST::BST(){
@@ -34,6 +28,8 @@ void BST::destuye_Helper(NodeT *r){
 	}
 }
 
+// Se agrega el dato solicitado
+// Complejidad: O(height)
 void BST::add(dataCS data){
 	if (root == nullptr){
 		root = new NodeT(data);
@@ -52,6 +48,8 @@ void BST::add(dataCS data){
 	}
 }
 
+// Se imprimen los datos por medio del recorrido InOrden convexo
+// Complejidad: O(n)
 void BST::print(){
 	inOrdenC(root);
 	cout << endl;
